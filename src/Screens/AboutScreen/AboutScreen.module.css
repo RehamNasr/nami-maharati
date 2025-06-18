@@ -1,0 +1,150 @@
+
+.aboutScreenContainer {
+    padding: 30px;
+    max-width: 900px;
+    margin: 90px auto 30px auto;
+    background-color: var(--color-white);
+    border-radius: 15px; 
+    box-shadow: var(--shadow-medium);
+    text-align: right; 
+    line-height: 1.8;
+    color: var(--color-text-primary);
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutTitle {
+    text-align: center;
+    color: var(--color-primary-background); 
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.aboutContent p {
+    margin-bottom: 20px;
+    font-size: 1.15em;
+}
+
+.contactInfo {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: var(--color-light-gray);
+    border-radius: 10px;
+    border: 1px solid var(--color-warm-gray);
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.contactInfo h2 {
+    color: var(--color-text-primary);
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contactInfo p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contactInfo ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.contactInfo li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.contactInfo .icon {
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: var(--color-pastel-blue); 
+}
+
+.contactLink {
+    color: var(--color-pastel-blue);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+    font-weight: 600;
+}
+
+.contactLink:hover {
+    color: var(--color-text-primary);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .aboutScreenContainer {
+        padding: 20px;
+        margin-top: 80px;
+    }
+
+    .aboutTitle {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+
+    .aboutContent p {
+        font-size: 1em;
+    }
+
+    .contactInfo {
+        padding: 20px;
+    }
+
+    .contactInfo h2 {
+        font-size: 1.6em;
+    }
+
+    .contactInfo p, .contactInfo li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutScreenContainer {
+        padding: 15px;
+        margin-top: 70px;
+    }
+
+    .aboutTitle {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .aboutContent p {
+        font-size: 0.95em;
+    }
+
+    .contactInfo {
+        padding: 15px;
+    }
+
+    .contactInfo h2 {
+        font-size: 1.4em;
+    }
+
+    .contactInfo li {
+        flex-direction: column; 
+        margin-bottom: 15px;
+        gap: 5px;
+    }
+    .contactInfo .icon {
+        margin-left: 0;
+        margin-bottom: 5px; 
+    }
+}

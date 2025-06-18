@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import { HeaderComponent } from './Components/HeaderComponent';
+import { AboutScreen, HomeScreen, PlayersScreen } from './Screens'
+import { FooterComponent } from './Components/Footer';
 function App() {
+  const [appname, setappname] = useState("HomeScreen")
+  const screens = {
+    "HomeScreen": <HomeScreen />,
+    "PlayersScreen": <PlayersScreen />,
+    "AboutScreen": <AboutScreen />
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <HeaderComponent appname={appname} setappname={setappname} />
+      {screens[appname]}
+      <FooterComponent />
     </div>
   );
 }

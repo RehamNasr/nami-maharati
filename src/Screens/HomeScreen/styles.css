@@ -1,0 +1,153 @@
+
+
+.containeer {
+    min-height: 100vh;
+    padding: 0 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("../../Assets/Images/back8.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 0;
+    padding-top: 80px;
+    box-sizing: border-box;
+    background-color: aquamarine;
+}
+
+.containeer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+.content-wrapper {
+    max-width: 700px;
+    text-align: right;
+    color: var(--color-white);
+    position: relative;
+    z-index: 1;
+    padding: 20px 0;
+}
+
+
+.headsec2 {
+    font-size: 3em;
+
+    color: var(--color-pastel-yellow);
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    display: block;
+}
+
+.des {
+    font-size: 1.2em;
+    line-height: 1.7;
+  
+    margin-bottom: 30px;
+    color: var(--color-white);
+
+    font-weight: 400;
+  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.btn {
+    padding: 0.8em 2em;
+
+    min-width: 12em;
+    background-color: var(--color-accent-yellow);
+  
+    border-radius: 0.6em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    margin-top: 1em;
+    color: var(--color-text-primary);
+    font-size: 1.2em;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    background-color: var(--color-pastel-blue);
+    color: var(--color-white);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .containeer {
+        padding: 0 3em;
+    }
+
+    .headsec2 {
+        font-size: 2.5em;
+    }
+
+    .des {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .containeer {
+        padding: 0 2em;
+        text-align: center;
+        padding-top: 70px;
+    }
+
+    .content-wrapper {
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .headsec2 {
+        font-size: 2.2em;
+        line-height: 1.2;
+    }
+
+    .des {
+        font-size: 1em;
+    }
+
+    .btn {
+        min-width: unset;
+        width: 80%;
+        max-width: 300px;
+        margin: 2em auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .containeer {
+        padding: 0 1.5em;
+        padding-top: 60px;
+    }
+
+    .headsec2 {
+        font-size: 1.8em;
+    }
+
+    .des {
+        font-size: 0.95em;
+    }
+
+    .btn {
+        padding: 0.7em 1.5em;
+        font-size: 1em;
+    }
+}
