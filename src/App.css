@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .App {
   text-align: center;
   direction: rtl;
   margin: 0;
 
 }
-*{
+
+* {
   padding: 0;
   margin: 0;
   text-decoration: none;
-      font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 
 }
 
@@ -54,6 +56,8 @@
 }
 
 :root {
+  /* لون خلفية الهيدر والفوتر (بيج كريمي فاتح جداً) */
+
   --color-primary-background: #369fc9;
   --color-text-primary: #333333;
   --color-accent-yellow: #FFD700;
@@ -67,28 +71,82 @@
   --color-warm-gray: #E0E0E0;
 }
 
+:root {
+  /* ألوان أساسية */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ألوان خلفيات ونصوص دافئة ومبهجة */
+  --color-header-bg: #fff8e1;
+  /* لون خلفية الهيدر والفوتر (بيج كريمي فاتح جداً) */
+  --color-primary-text: #6d4c41;
+  /* لون النص الأساسي (بني داكن) */
+  --color-accent-text: #ff8a65;
+  /* لون العنوان والعناصر النشطة (برتقالي دافئ ومبهج) */
+  --color-button-hover: #a8dadc;
+  /* لون زر التحويم (أزرق باستيل) */
+  --color-badge-bg: #ef5350;
+  /* لون خلفية الشارة (أحمر دافئ) */
+
+  /* ألوان الظلال */
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* ظل أعمق قليلاً */
+
+  /* الانتقالات */
+  --transition-normal: 0.3s ease-in-out;
+
+  /* الخطوط (تأكد من استيرادها في index.html) */
+  --font-heading: 'Changa', sans-serif;
+  --font-body: 'Cairo', sans-serif;
+}
+
 ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-light-gray); 
-    border-radius: 10px; 
+  background: var(--color-light-gray);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary-background); 
-    border-radius: 10px;
-    border: 3px solid var(--color-light-gray); 
+  background-color: var(--color-primary-background);
+  border-radius: 10px;
+  border: 3px solid var(--color-light-gray);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-accent-yellow); 
-    cursor: grab; 
+  background-color: var(--color-accent-yellow);
+  cursor: grab;
 }
 
 html {
-    scrollbar-width: thin; 
-    scrollbar-color: var(--color-primary-background) var(--color-light-gray);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-background) var(--color-light-gray);
+}
+
+
+.toast-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* Adjust for RTL */
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  font-size: 1.1em;
+  direction: rtl;
+  /* Ensure RTL for Arabic text */
+}
+
+/* Optional: Add a class for hiding/showing if you want more complex animations */
+.toast-notification.hide {
+  opacity: 0;
 }

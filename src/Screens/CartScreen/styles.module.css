@@ -1,0 +1,311 @@
+/* Screens/styles.module.css or CartScreen.module.css */
+
+/* --- Define your root variables if you haven't already in a global CSS file --- */
+:root {
+    --primary-blue: #007bff; /* Main button color */
+    --primary-blue-dark: #0056b3; /* Hover color for primary */
+    --danger-red: #dc3545; /* Remove button color */
+    --danger-red-dark: #c82333; /* Hover color for remove */
+    --success-green: #28a745; /* Often used for success/checkout */
+    --success-green-dark: #218838; /* Hover for success */
+    --light-gray-bg: #f8f8f8;
+    --dark-text: #333;
+    --white-text: #fff;
+    --border-light: #eee;
+}
+
+
+.cartScreenContainer {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    direction: rtl; /* For Arabic text alignment */
+    text-align: right;
+    min-height: 70vh; /* Ensure some height even if cart is empty */
+    display: flex;
+    flex-direction: column;
+}
+
+.screenTitle {
+    text-align: center;
+    color: var(--dark-text);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.emptyCart {
+    text-align: center;
+    padding: 50px;
+    background-color: var(--light-gray-bg);
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+    flex-grow: 1; /* Allow it to take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyCart p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Updated style for continueShoppingBtn (used in empty cart state) */
+.continueShoppingBtn {
+    padding: 12px 25px;
+    background-color: var(--primary-blue);
+    color: var(--white-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold; /* Added bold */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 15px;
+}
+
+.continueShoppingBtn:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-1px);
+}
+.continueShoppingBtn:active {
+    transform: translateY(0);
+}
+
+
+.cartItemsGrid {
+    display: grid;
+    /* Use auto-fit for better responsiveness here too */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Increased min width */
+    gap: 25px; /* Adjust gap */
+    margin-bottom: 30px;
+    justify-content: center; /* Center items if they don't fill the row */
+}
+
+.cartItemCard {
+    background-color: var(--white-text);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+    display: flex;
+    padding: 15px;
+    gap: 15px;
+    align-items: center;
+    transition: transform 0.2s ease; /* Add hover effect to cards */
+}
+
+.cartItemCard:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.cartItemImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.itemDetails {
+    flex-grow: 1;
+    display: flex; /* Use flex for internal layout of details */
+    flex-direction: column;
+    justify-content: space-between; /* Push quantity and remove button down */
+}
+
+.itemName {
+    font-size: 1.4em;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+    font-weight: bold; /* Added bold */
+}
+
+.itemPrice {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.originalPriceCart {
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 8px;
+}
+
+.quantityControl {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto; /* Push quantity control to bottom of itemDetails */
+    margin-bottom: 15px; /* Space before remove button */
+}
+
+.quantityInput {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    -moz-appearance: textfield; /* Hide arrows for Firefox */
+}
+/* Hide arrows for Chrome, Safari, Edge */
+.quantityInput::-webkit-outer-spin-button,
+.quantityInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Enhanced Remove Button */
+.removeButton {
+    background-color: var(--danger-red);
+    color: var(--white-text);
+    border: none;
+    padding: 10px 20px; /* Increased padding */
+    border-radius: 5px; /* Consistent border-radius */
+    cursor: pointer;
+    font-size: 0.95em; /* Slightly larger font */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    align-self: flex-end; /* Align to the end of itemDetails */
+}
+
+.removeButton:hover {
+    background-color: var(--danger-red-dark);
+    transform: translateY(-1px);
+}
+.removeButton:active {
+    transform: translateY(0);
+}
+
+
+.cartSummary {
+    background-color: var(--light-gray-bg);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    margin-top: 30px; /* Consistent margin from grid */
+    display: flex; /* Use flex for layout */
+    flex-direction: column; /* Stack summary elements */
+    align-items: center; /* Center items horizontally */
+    gap: 15px; /* Space between summary elements */
+}
+
+.totalPrice {
+    font-size: 2em; /* Slightly larger total price */
+    color: var(--dark-text); /* Changed to dark text, green can be too much */
+    margin-bottom: 10px; /* Reduced margin, as gap will handle spacing */
+    font-weight: bold;
+    color: var(--success-green); /* Keep total price green for positive feeling */
+}
+
+.totalPrice span {
+    font-size: 1em; /* Make the actual price similar size as "الإجمالي" */
+    margin-right: 5px;
+}
+
+/* Enhanced Checkout Button */
+.checkoutButton {
+    padding: 15px 30px;
+    background-color: var(--primary-blue); /* Primary action, blue */
+    color: var(--white-text);
+    border: none;
+    border-radius: 8px; /* Slightly more rounded */
+    font-size: 1.4em; /* Larger font for primary action */
+    font-weight: bold; /* Bold text */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 350px; /* Slightly increased max-width for checkout button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
+}
+
+.checkoutButton:hover {
+    background-color: var(--primary-blue-dark);
+    transform: translateY(-2px); /* More pronounced lift for primary */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.checkoutButton:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjustments for the 'متابعة التسوق' button within cart summary */
+.cartSummary .continueShoppingBtn { /* Target specifically in summary */
+    background-color: transparent; /* Transparent background */
+    color: var(--primary-blue); /* Blue text */
+    border: 1px solid var(--primary-blue); /* Blue border */
+    padding: 12px 25px; /* Consistent padding */
+    font-size: 1.1em; /* Slightly larger */
+    margin-top: 0; /* Reset margin as gap handles spacing */
+}
+
+.cartSummary .continueShoppingBtn:hover {
+    background-color: var(--primary-blue); /* Fill on hover */
+    color: var(--white-text);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cartItemsGrid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+        gap: 15px;
+    }
+
+    .cartItemCard {
+        flex-direction: column; /* Stack image and details */
+        text-align: center;
+        align-items: center; /* Center items in column mode */
+    }
+
+    .cartItemImage {
+        margin-bottom: 10px;
+    }
+
+    .itemDetails {
+        width: 100%; /* Ensure details take full width */
+        align-items: center; /* Center text and controls */
+    }
+
+    .quantityControl {
+        justify-content: center;
+        margin-bottom: 10px; /* Smaller margin for mobile */
+    }
+
+    .removeButton {
+        align-self: center; /* Center button in column mode */
+    }
+
+    .checkoutButton,
+    .cartSummary .continueShoppingBtn {
+        width: 90%;
+        max-width: unset; /* Remove max-width on mobile */
+    }
+
+    .totalPrice {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cartScreenContainer {
+        padding: 15px;
+    }
+
+    .screenTitle {
+        font-size: 2em;
+    }
+
+    .checkoutButton,
+    .cartSummary .continueShoppingBtn {
+        padding: 12px 20px;
+        font-size: 1.2em;
+    }
+}

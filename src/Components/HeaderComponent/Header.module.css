@@ -1,103 +1,127 @@
+/* Header.module.css */
 
 .header {
+    background-color: #f8f8f8;
+    padding: 15px 25px;
     display: flex;
-    flex-direction: row;
-    background-color: var(--color-primary-background);
     justify-content: space-between;
-    padding: 1.2em 4em;
     align-items: center;
-    flex-wrap: wrap;
-    color: var(--color-white);
-    position: sticky;
-    top: 0;
-    width: 100%;
-    box-shadow: var(--shadow-medium);
-    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    direction: rtl; /* For Arabic text alignment */
+    font-family: 'Arial', sans-serif;
 }
 
 .appTitle {
-    text-align: center;
-    margin: 0;
+    color: #333;
     font-size: 1.8em;
-    font-weight: 700;
-    color: var(--color-white);
+    margin: 0;
 }
 
 .navbarNav {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 1.5em;
-    margin: 0;
+    gap: 25px;
+    align-items: center; /* Align items vertically */
 }
 
 .navLink {
-    font-size: 1.15em;
     text-decoration: none;
-    padding: .5em 1.5em;
-    border-radius: .5em;
-    color: var(--color-white);
-    transition: all var(--transition-normal);
-    font-weight: 400;
-}
-
-.activeNavLink {
-    background-color: var(--color-pastel-blue);
-    color: var(--color-text-primary);
-    font-weight: 700;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-.activeNavLink:hover {
-    background-color: var(--color-pastel-blue);
-    color: var(--color-text-primary);
-    transform: translateY(-2px);
-    opacity: 0.9;
+    color: #555;
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    position: relative; /* For the active indicator */
 }
 
 .navLink:hover {
-    color: var(--color-accent-yellow);
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
+    color: #007bff;
 }
 
+.activeNavLink {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.activeNavLink::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 0; /* Adjust for RTL */
+    width: 100%;
+    height: 3px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+/* New styles for Cart Icon and Badge */
+.cartLink {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0; /* Remove default padding as icon has its own size */
+}
+
+.cartLink:hover {
+    color: #007bff; /* Apply hover to the whole link area */
+}
+
+.cartIcon {
+    width: 28px; /* Size of your SVG icon */
+    height: 28px;
+    fill: #555; /* Default color of the icon */
+    transition: fill 0.3s ease;
+}
+
+.cartLink:hover .cartIcon {
+    fill: #007bff; /* Color change on hover */
+}
+
+.cartBadge {
+    position: absolute;
+    top: -8px; /* Adjust vertical position */
+    right: -8px; /* Adjust horizontal position for RTL */
+    background-color: #dc3545; /* Red color for badge */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.75em;
+    font-weight: bold;
+    min-width: 20px; /* Ensure it's round even with single digit */
+    text-align: center;
+    line-height: 1; /* Center text vertically */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
-        padding: 1em 2em;
-        text-align: center;
+        padding: 10px;
     }
 
     .appTitle {
-        margin-bottom: 1em;
-    }
-
-    .navbarNav {
-        justify-content: center;
-        width: 100%;
-        margin-top: 1em;
-        gap: 0.8em;
-    }
-
-    .navLink {
-        font-size: 1em;
-        padding: .4em 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        padding: 1em 1em;
-    }
-
-    .appTitle {
+        margin-bottom: 15px;
         font-size: 1.5em;
     }
 
     .navbarNav {
-        flex-direction: column;
+        width: 100%;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
+    .navLink {
+        font-size: 1em;
+    }
+
+    .cartIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .cartBadge {
+        top: -6px;
+        right: -6px;
+        padding: 1px 6px;
+        font-size: 0.7em;
+        min-width: 18px;
     }
 }
