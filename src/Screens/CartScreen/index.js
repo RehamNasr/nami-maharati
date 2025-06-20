@@ -4,7 +4,7 @@ import styles from './styles.module.css'; // Ensure correct path
 
 const CartScreen = ({ cartItems, onUpdateQuantity, onRemoveFromCart, setappname }) => {
     // Target WhatsApp number
-    const whatsappNumber = "01221315065";
+    const whatsappNumber = "201221315065";
 
     // Calculate total price
     const calculateTotal = () => {
